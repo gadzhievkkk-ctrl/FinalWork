@@ -1,14 +1,30 @@
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
+
 int main() {
-setlocale(LC_ALL, "Russian");
-long double x, y; 
-printf("��������������� x: ");
-scanf_s("%Lf", &x); 
-long double a1 = 3.2 + sqrtl(1 + x); 
-long double b1 = fabsl(5 * x); 
-    y = cos(a / b); 
-printf("���������������y = %Lf", y); 
-return 0;
+    setlocale(LC_ALL, "Russian");
+    
+    /* 
+     * Объявление переменных:
+     * x   - значение аргумента, вводимое пользователем
+     * y   - искомое значение функции (результат вычислений)
+     * a1  - промежуточная переменная (числитель/первое слагаемое аргумента косинуса)
+     * b1  - промежуточная переменная (знаменатель/второе слагаемое аргумента косинуса)
+     */
+    long double x;
+    long double y;
+    
+    printf("Введите значение x: ");
+    scanf_s("%Lf", &x); 
+    
+    long double a1 = 3.2 + sqrtl(1 + x); 
+    long double b1 = fabsl(5 * x); 
+    
+    // Вычисление итогового значения (исправлено a/b на a1/b1)
+    y = cos(a1 / b1); 
+    
+    printf("Искомое значение y = %Lf", y); 
+    
+    return 0;
 }
